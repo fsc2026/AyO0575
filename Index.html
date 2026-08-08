@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#1e40af">
-    <title>Inversiones A&O 0575, C.A. - Catálogo de Repuestos</title>
+    <title>Inversiones A&O 0575, C.A. - Catálogo de Piezas Automotrices</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -53,7 +53,7 @@
             <div class="flex items-center gap-4">
                 <!-- CONTENEDOR DEL LOGO DE LA EMPRESA -->
                 <div class="h-16 px-3 py-1.5 bg-blue-50/60 border border-blue-100 rounded-2xl flex items-center justify-center shadow-sm shrink-0">
-                    <img src="Logo Iv A&O 0575 Transparente.png" alt="Inversiones A&O 0575, C.A." class="h-12 w-auto object-contain" 
+                    <img src="Logo.png" alt="Inversiones A&O 0575, C.A." class="h-12 w-auto object-contain" 
                          onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-12 h-12 rounded-2xl bg-blue-800 flex items-center justify-center text-white shadow-lg\'><i data-lucide=\'wrench\' class=\'w-6 h-6\'></i></div>'; lucide.createIcons();">
                 </div>
                 <div>
@@ -61,7 +61,7 @@
                         Inversiones A&O 0575, C.A.
                     </h1>
                     <div class="flex flex-col mt-1">
-                        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">RIF: J-299743296-5</span>
+                        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">RIF: J-29743296-5</span>
                         <span class="text-[10px] font-bold text-blue-600 uppercase tracking-tighter flex items-center gap-1">
                             <i data-lucide="map-pin" class="w-3 h-3"></i> Maracay - Aragua
                         </span>
@@ -907,8 +907,8 @@
             const name = document.getElementById('clientNameInput').value.trim() || 'Cliente';
             const dateStr = new Date().toLocaleDateString('es-VE');
             
-            let msg = `🛠️ *COTIZACIÓN DE REPUESTOS - Inversiones A&O 0575, C.A.*\n`;
-            msg += `📋 *RIF:* J-299743296-5\n`;
+            let msg = `🛠️ *COTIZACIÓN DE PIEZAS AUTOMOTRICES*\n`;
+            
             msg += `📅 *Fecha:* ${dateStr}\n`;
             msg += `👤 *Cliente:* ${name}\n`;
             msg += `───────────────────\n`;
@@ -923,7 +923,7 @@
             msg += `───────────────────\n`;
             msg += `💰 *TOTAL ESTIMADO:* *$${totalUsd.toFixed(2)} USD*\n`;
             msg += `🇻🇪 *BCV OFICIAL (${TASA_BCV.toFixed(2)} Bs/$):* *${totalBs.toLocaleString('es-VE', {minimumFractionDigits: 2, maximumFractionDigits: 2})} Bs*\n\n`;
-            msg += `📍 *Ubicación:* Maracay - Aragua.\n`;
+            
             msg += `¡Agradecemos confirmación de disponibilidad y método de pago!`;
 
             const encoded = encodeURIComponent(msg);
