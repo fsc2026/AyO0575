@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#1e40af">
-    <title>Inversiones A&O 0575, C.A. - Catálogo en la Nube</title>
+    <title>Inversiones A&O 0575, C.A. - Catálogo de Repuestos</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -48,12 +48,12 @@
     <!-- CONTENEDOR PRINCIPAL RESPONSIVO -->
     <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-6">
         
-        <!-- HEADER CORPORATIVO A&O CON LOGO -->
+        <!-- HEADER CORPORATIVO A&O CON LOGO Y RIF OFICIAL -->
         <header class="bg-white rounded-3xl p-5 mb-6 flex flex-col md:flex-row justify-between items-center gap-4 border border-blue-100 shadow-xl">
             <div class="flex items-center gap-4">
                 <!-- CONTENEDOR DEL LOGO DE LA EMPRESA -->
                 <div class="h-16 px-3 py-1.5 bg-blue-50/60 border border-blue-100 rounded-2xl flex items-center justify-center shadow-sm shrink-0">
-                    <img src="Logo.png" alt="Inversiones A&O 0575, C.A." class="h-12 w-auto object-contain" 
+                    <img src="Logo Iv A&O 0575 Transparente.png" alt="Inversiones A&O 0575, C.A." class="h-12 w-auto object-contain" 
                          onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-12 h-12 rounded-2xl bg-blue-800 flex items-center justify-center text-white shadow-lg\'><i data-lucide=\'wrench\' class=\'w-6 h-6\'></i></div>'; lucide.createIcons();">
                 </div>
                 <div>
@@ -62,12 +62,12 @@
                     </h1>
                     <div class="flex flex-col mt-1">
                         <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">RIF: J-29743296-5</span>
-                        <div class="flex items-center gap-3">
+                        <div class="flex items-center gap-3 mt-0.5">
                             <span class="text-[10px] font-bold text-blue-600 uppercase tracking-tighter flex items-center gap-1">
                                 <i data-lucide="map-pin" class="w-3 h-3"></i> Maracay - Aragua
                             </span>
-                            <span id="cloud-status-badge" class="text-[9px] font-black text-emerald-600 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full flex items-center gap-1 uppercase tracking-tighter">
-                                <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span> Nube Activa
+                            <span id="cloud-status-badge" class="text-[9px] font-black text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-full flex items-center gap-1 uppercase tracking-tighter">
+                                <span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> Memoria Local
                             </span>
                         </div>
                     </div>
@@ -156,7 +156,7 @@
                 </div>
             </div>
 
-            <div id="cartItemsList" class="mt-4 space-y-3 max-h-[58vh] overflow-y-auto custom-scrollbar pr-1">
+            <div id="cartItemsList" class="mt-4 space-y-3 max-h-[50vh] overflow-y-auto custom-scrollbar pr-1">
                 <!-- Ítems seleccionados con miniaturas -->
             </div>
         </div>
@@ -170,6 +170,17 @@
                 <div class="flex justify-between text-xs text-slate-600">
                     <span>Monto en Bolívares (BCV):</span>
                     <span id="cartSubtotalBs" class="font-bold text-blue-800 mono">0.00 Bs</span>
+                </div>
+            </div>
+
+            <!-- FORMAS DE PAGO OFICIALES DE A&O -->
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 space-y-1 text-[10px]">
+                <p class="font-black text-blue-900 uppercase tracking-wider">💳 Formas de Pago Aceptadas:</p>
+                <div class="grid grid-cols-2 gap-1 text-slate-600 font-semibold">
+                    <span>• Pagos en Bs</span>
+                    <span>• Divisa en Efectivo</span>
+                    <span>• Binance</span>
+                    <span>• Zinli</span>
                 </div>
             </div>
 
@@ -215,24 +226,29 @@
     <!-- MODAL GESTIÓN DE PRODUCTOS Y STOCK -->
     <div id="manageProductsModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden border border-slate-100">
-            <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                <div class="flex gap-2">
+            <div class="p-4 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <div class="flex gap-1.5 flex-wrap">
                     <button id="tabListBtn" onclick="switchManageTab('list')" class="px-4 py-2 rounded-xl text-xs font-black uppercase bg-blue-800 text-white">Listado Repuestos</button>
                     <button id="tabAddBtn" onclick="resetProductForm(); switchManageTab('add', false);" class="px-4 py-2 rounded-xl text-xs font-black uppercase text-slate-500 bg-white border border-slate-200">
                         <span id="tabAddLabel">Nuevo Repuesto</span>
+                    </button>
+                    <button id="tabSyncBtn" onclick="switchManageTab('sync')" class="px-4 py-2 rounded-xl text-xs font-black uppercase text-blue-700 bg-blue-50 border border-blue-200 flex items-center gap-1">
+                        <i data-lucide="arrow-left-right" class="w-3.5 h-3.5"></i> Sincronizar
                     </button>
                 </div>
                 <button onclick="closeManageModal()" class="text-slate-400 hover:text-red-500 p-1"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
             
+            <!-- TAB 1: LISTADO -->
             <div id="manageListTab" class="p-6 overflow-y-auto custom-scrollbar flex-1">
                 <div class="flex justify-between items-center text-xs text-slate-400 mb-3">
                     <span class="font-bold uppercase tracking-wider">Inventario Registrado (<span id="totalItemsCount">0</span>)</span>
-                    <span class="text-[9px] text-emerald-600 font-bold uppercase">☁️ Sincronizado en la Nube</span>
+                    <button onclick="restoreInitialProducts()" class="text-[9px] text-red-500 hover:underline font-bold uppercase">Restablecer Inicial</button>
                 </div>
                 <div id="inventoryControlList" class="space-y-2.5"></div>
             </div>
 
+            <!-- TAB 2: FORMULARIO AGREGAR / EDITAR -->
             <div id="manageAddTab" class="p-6 overflow-y-auto custom-scrollbar hidden flex-1">
                 <form onsubmit="saveNewProduct(event)" class="grid grid-cols-2 gap-4">
                     <div class="col-span-1"><label class="text-[9px] font-bold text-slate-400 uppercase">Código Parte / SKU *</label><input type="text" id="newId" required placeholder="Ej. AO-OIL-10W40" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs outline-none focus:border-blue-500"></div>
@@ -243,9 +259,51 @@
                     <div class="col-span-2"><label class="text-[9px] font-bold text-slate-400 uppercase">Imagen / Foto (Nombre o URL)</label><input type="text" id="newImageUrl" placeholder="Ej: bujia.jpg o https://sitio.com/foto.jpg" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs outline-none focus:border-blue-500"></div>
                     <div class="col-span-2 pt-4 flex gap-2">
                         <button type="button" onclick="switchManageTab('list')" class="w-1/2 py-3 bg-slate-100 text-slate-600 rounded-xl text-xs font-bold uppercase">Cancelar</button>
-                        <button type="submit" id="formSubmitBtn" class="w-1/2 py-3 bg-blue-800 text-white rounded-xl text-xs font-black uppercase btn-tap shadow-md shadow-blue-900/20">Guardar en la Nube</button>
+                        <button type="submit" id="formSubmitBtn" class="w-1/2 py-3 bg-blue-800 text-white rounded-xl text-xs font-black uppercase btn-tap shadow-md shadow-blue-900/20">Guardar Repuesto</button>
                     </div>
                 </form>
+            </div>
+
+            <!-- TAB 3: HERRAMIENTAS DE SINCRONIZACIÓN PC <-> MÓVIL -->
+            <div id="manageSyncTab" class="p-6 overflow-y-auto custom-scrollbar hidden flex-1 space-y-6">
+                <div class="bg-blue-50 p-4 rounded-2xl border border-blue-100 space-y-2">
+                    <h4 class="text-xs font-black text-blue-900 uppercase tracking-wider flex items-center gap-2">
+                        <i data-lucide="smartphone" class="w-4 h-4 text-blue-700"></i>
+                        Paso A: Pasar Cambios de PC a Celular
+                    </h4>
+                    <p class="text-[10px] text-slate-600 leading-relaxed">
+                        Copia este código comprimido en tu PC y envíatelo por WhatsApp. Luego abre la App en tu teléfono, entra aquí y presiona <strong>Importar Código</strong>.
+                    </p>
+                    <div class="pt-2 flex gap-2">
+                        <button onclick="copySyncCode()" class="w-full py-2.5 bg-blue-800 text-white rounded-xl text-xs font-bold uppercase btn-tap flex items-center justify-center gap-1.5 shadow-md">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copiar Código de Inventario
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2">
+                    <h4 class="text-xs font-black text-slate-800 uppercase tracking-wider flex items-center gap-2">
+                        <i data-lucide="download" class="w-4 h-4 text-slate-700"></i>
+                        Paso B: Importar Código en este Dispositivo
+                    </h4>
+                    <textarea id="syncCodeInput" rows="3" placeholder="Pega aquí el código que te enviaste desde la PC..." class="w-full bg-white border border-slate-200 rounded-xl p-3 text-xs outline-none font-mono focus:border-blue-500 resize-none"></textarea>
+                    <button onclick="importSyncCode()" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold uppercase btn-tap flex items-center justify-center gap-1.5 shadow-md">
+                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> Importar Inventario
+                    </button>
+                </div>
+
+                <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 space-y-2">
+                    <h4 class="text-xs font-black text-amber-900 uppercase tracking-wider flex items-center gap-2">
+                        <i data-lucide="github" class="w-4 h-4 text-amber-700"></i>
+                        Paso C: Hacer el Inventario Permanente en GitHub
+                    </h4>
+                    <p class="text-[10px] text-slate-600 leading-relaxed">
+                        Genera el código JavaScript listo para pegar en tu archivo `catalogo_ao_0575.html` de GitHub. Así todos tus clientes verán el inventario actualizado sin importar el dispositivo.
+                    </p>
+                    <button onclick="generateGithubCode()" class="w-full py-2.5 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold uppercase btn-tap flex items-center justify-center gap-1.5 shadow-md">
+                        <i data-lucide="code" class="w-3.5 h-3.5"></i> Generar Código para GitHub
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -266,24 +324,25 @@
         </button>
     </div>
 
-    <!-- FIREBASE FIRESTORE MODULE & SCRIPT DE LÓGICA CON PERSISTENCIA EN LA NUBE -->
+    <!-- FIREBASE FIRESTORE MODULE & SCRIPT DE LÓGICA CON PERSISTENCIA EN LA NUBE Y RIF J-29743296-5 -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, doc, setDoc, onSnapshot, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const hasFirebaseConfig = typeof __firebase_config !== 'undefined';
+        const hasFirebaseConfig = typeof __firebase_config !== 'undefined' && __firebase_config;
 
         let app, auth, db;
         let currentUser = null;
+        let isCloudActive = false;
 
         const MASTER_PIN = "757575";
-        const LOCAL_STORAGE_KEY = 'ao_0575_repuestos_db_v5';
+        const LOCAL_STORAGE_KEY = 'ao_0575_repuestos_db_v7';
         let isAdmin = false;
         let editingIndex = -1;
 
-        // IMAGEN POR DEFECTO CORPORATIVA CON EL NOMBRE A&O
+        // IMAGEN POR DEFECTO CORPORATIVA
         const DEFAULT_IMG = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300' fill='%23f8fafc'><rect width='400' height='300'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' fill='%231e40af' font-family='sans-serif' font-size='16' font-weight='bold'>INVERSIONES A%26O 0575</text><text x='50%' y='60%' dominant-baseline='middle' text-anchor='middle' fill='%2364748b' font-family='sans-serif' font-size='12'>REPUESTOS AUTOMOTRICES</text></svg>";
 
         const INITIAL_PRODUCTS = [
@@ -292,7 +351,7 @@
             { id: "AO-PLUG-NGK", name: "Bujía NGK G-Power (Set 4 Und)", category: "Encendido", brand: "NGK", priceUsd: 24.00, imageUrl: "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?w=500&q=80", active: true }
         ];
 
-        // FUNCIONES DE FALLBACK DE SEGURIDAD LOCAL
+        // FUNCIONES DE PERSISTENCIA LOCAL EN EL NAVEGADOR
         function loadProductsDataLocal() {
             try {
                 const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -324,41 +383,56 @@
 
         // CONEXIÓN A FIRESTORE
         if (hasFirebaseConfig) {
-            const firebaseConfig = JSON.parse(__firebase_config);
-            app = initializeApp(firebaseConfig);
-            auth = getAuth(app);
-            db = getFirestore(app);
+            try {
+                const firebaseConfig = JSON.parse(__firebase_config);
+                app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
 
-            const initAuth = async () => {
-                try {
-                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                        await signInWithCustomToken(auth, __initial_auth_token);
-                    } else {
-                        await signInAnonymously(auth);
+                const initAuth = async () => {
+                    try {
+                        if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                            await signInWithCustomToken(auth, __initial_auth_token);
+                        } else {
+                            await signInAnonymously(auth);
+                        }
+                    } catch (e) {
+                        console.warn("Auth fallback:", e);
                     }
-                } catch (e) {
-                    console.error("Error autenticando con Firebase:", e);
-                }
-            };
-            initAuth();
+                };
+                initAuth();
 
-            onAuthStateChanged(auth, (user) => {
-                currentUser = user;
-                if (user) {
-                    listenToCloudDatabase();
-                }
-            });
+                onAuthStateChanged(auth, (user) => {
+                    currentUser = user;
+                    if (user) {
+                        isCloudActive = true;
+                        updateCloudBadge();
+                        listenToCloudDatabase();
+                    }
+                });
+            } catch(e) {
+                console.warn("Nube no disponible en este host:", e);
+            }
+        }
+
+        function updateCloudBadge() {
+            const badge = document.getElementById('cloud-status-badge');
+            if (!badge) return;
+            if (isCloudActive) {
+                badge.className = "text-[9px] font-black text-emerald-600 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full flex items-center gap-1 uppercase tracking-tighter";
+                badge.innerHTML = `<span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span> Nube Activa`;
+            } else {
+                badge.className = "text-[9px] font-black text-blue-700 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-full flex items-center gap-1 uppercase tracking-tighter";
+                badge.innerHTML = `<span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> Memoria Local`;
+            }
         }
 
         function listenToCloudDatabase() {
             if (!currentUser || !db) return;
-            // RULE 1: Strict path /artifacts/{appId}/public/data/repuestos_ao
             const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'repuestos_ao');
             
-            // RULE 2: Simple query without orderBy/where
             onSnapshot(colRef, (snapshot) => {
                 if (snapshot.empty) {
-                    // Sembrar catálogo inicial en la nube si está vacío por primera vez
                     INITIAL_PRODUCTS.forEach(async (p) => {
                         try {
                             await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'repuestos_ao', p.id), p);
@@ -386,6 +460,7 @@
             renderCategories(); 
             renderProducts(); 
             updateAdminUI(); 
+            updateCloudBadge();
         };
 
         function showToast(msg) {
@@ -564,8 +639,8 @@
                             <!-- FOTO REPUESTO -->
                             <div class="relative w-full h-44 bg-slate-100 rounded-2xl overflow-hidden mb-3 border border-slate-200">
                                 <img src="${imgSrc}" onerror="this.onerror=null; this.src='${DEFAULT_IMG}'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                <span class="absolute top-2 left-2 bg-white/90 text-blue-900 text-[8px] font-black uppercase px-2 py-1 rounded-lg border border-slate-200 shadow-sm">${p.category}</span>
-                                <span class="absolute top-2 right-2 bg-slate-900/80 text-slate-200 text-[8px] font-bold px-2 py-1 rounded-lg mono">${p.id}</span>
+                                <span class="absolute top-2 left-2 badge-cat text-[9px] font-black uppercase px-2.5 py-1 rounded-xl tracking-wider backdrop-blur-md">${p.category}</span>
+                                <span class="absolute top-2 right-2 bg-slate-900/80 text-slate-200 text-[8px] font-bold px-2 py-1 rounded-xl mono">${p.id}</span>
                                 ${isInactive ? '<span class="absolute bottom-2 left-2 bg-amber-500 text-slate-950 text-[8px] font-black uppercase px-2 py-0.5 rounded-lg">Oculto</span>' : ''}
                             </div>
                             <h3 class="text-xs font-bold text-slate-800 uppercase leading-snug line-clamp-2 mb-1">${p.name}</h3>
@@ -775,21 +850,19 @@
             if (!prod) return;
 
             const newActiveState = !(prod.active !== false);
+            productsDatabase[i].active = newActiveState;
+            saveProductsDataLocal();
 
             if (currentUser && db) {
                 try {
-                    // RULE 1: Strict path
                     await updateDoc(doc(db, 'artifacts', appId, 'public', 'data', 'repuestos_ao', prod.id), {
                         active: newActiveState
                     });
                     showToast(newActiveState ? "Repuesto activado en la nube" : "Repuesto ocultado en la nube");
                 } catch(err) {
-                    console.error("Error al actualizar en Firestore:", err);
-                    alert("Error al guardar cambios: " + err.message);
+                    console.error("Error en nube:", err);
                 }
             } else {
-                productsDatabase[i].active = newActiveState;
-                saveProductsDataLocal();
                 renderInventoryList(); 
                 renderProducts(); 
                 renderCategories(); 
@@ -805,19 +878,17 @@
             if(confirm(`¿Deseas eliminar "${prod.name}" del catálogo?`)) { 
                 const deletedId = prod.id;
                 cart = cart.filter(item => item.id !== deletedId);
+                productsDatabase.splice(i, 1); 
+                saveProductsDataLocal();
 
                 if (currentUser && db) {
                     try {
-                        // RULE 1: Strict path
                         await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'repuestos_ao', deletedId));
                         showToast("Repuesto eliminado de la nube");
                     } catch(err) {
-                        console.error("Error al eliminar de Firestore:", err);
-                        alert("Error al eliminar: " + err.message);
+                        console.error("Error en nube:", err);
                     }
                 } else {
-                    productsDatabase.splice(i, 1); 
-                    saveProductsDataLocal();
                     renderInventoryList(); 
                     renderProducts(); 
                     renderCategories(); 
@@ -856,32 +927,95 @@
             const isEdit = editingIndex >= 0;
             const oldId = isEdit && productsDatabase[editingIndex] ? productsDatabase[editingIndex].id : null;
 
+            if (isEdit) {
+                productsDatabase[editingIndex] = prodData;
+            } else {
+                productsDatabase.unshift(prodData);
+            }
+
+            saveProductsDataLocal();
+
             if (currentUser && db) {
                 try {
-                    // RULE 1: Strict path /artifacts/{appId}/public/data/repuestos_ao
                     if (isEdit && oldId && oldId !== idVal) {
                         await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'repuestos_ao', oldId));
                     }
                     await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'repuestos_ao', idVal), prodData);
                     showToast(isEdit ? "¡Ficha actualizada en la nube!" : "¡Repuesto publicado en la nube!");
                 } catch(err) {
-                    console.error("Error al guardar en Firestore:", err);
-                    alert("Error al guardar en la nube: " + err.message);
+                    console.error("Error en nube:", err);
                 }
             } else {
-                if (isEdit) {
-                    productsDatabase[editingIndex] = prodData;
-                } else {
-                    productsDatabase.unshift(prodData);
-                }
-                saveProductsDataLocal();
-                renderProducts();
-                renderCategories();
                 showToast(isEdit ? "¡Ficha actualizada!" : "¡Repuesto agregado!");
             }
 
             resetProductForm();
             switchManageTab('list'); 
+            renderProducts(); 
+            renderCategories(); 
+        }
+
+        function restoreInitialProducts() {
+            if (!isAdmin) return;
+            if (confirm("¿Restablecer el inventario a la versión inicial? Se descartarán los cambios locales no sincronizados.")) {
+                productsDatabase = [...INITIAL_PRODUCTS];
+                saveProductsDataLocal();
+                renderInventoryList();
+                renderProducts();
+                renderCategories();
+                showToast("Inventario restablecido");
+            }
+        }
+
+        // HERRAMIENTAS DE SINCRONIZACIÓN MANUAL RÁPIDA (PC ➔ MÓVIL)
+        function copySyncCode() {
+            const code = btoa(unescape(encodeURIComponent(JSON.stringify(productsDatabase))));
+            const el = document.createElement('textarea');
+            el.value = code;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            showToast("¡Código de Inventario Copiado!");
+            alert("Código copiado al portapapeles. Envíatelo por WhatsApp al teléfono para importar el catálogo.");
+        }
+
+        function importSyncCode() {
+            const inputVal = document.getElementById('syncCodeInput').value.trim();
+            if (!inputVal) {
+                alert("Por favor pega el código de inventario generado desde tu PC.");
+                return;
+            }
+            try {
+                const decoded = JSON.parse(decodeURIComponent(escape(atob(inputVal))));
+                if (Array.isArray(decoded) && decoded.length > 0) {
+                    productsDatabase = decoded;
+                    saveProductsDataLocal();
+                    renderInventoryList();
+                    renderProducts();
+                    renderCategories();
+                    showToast("¡Inventario Sincronizado!");
+                    alert("¡Sincronización Exitosa! Tu celular ya tiene todos los repuestos cargados.");
+                    switchManageTab('list');
+                } else {
+                    alert("El código no tiene una estructura válida.");
+                }
+            } catch(e) {
+                alert("Error al leer el código. Asegúrate de copiarlo completo.");
+            }
+        }
+
+        function generateGithubCode() {
+            const jsonCode = JSON.stringify(productsDatabase, null, 4);
+            const jsCode = `const INITIAL_PRODUCTS = ${jsonCode};`;
+            const el = document.createElement('textarea');
+            el.value = jsCode;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            showToast("¡Código JS copiado para GitHub!");
+            alert("Código de INITIAL_PRODUCTS copiado. Reemplázalo en tu archivo de GitHub para que la actualización sea permanente para todos los clientes.");
         }
 
         function switchManageTab(t, resetForm = true) {
@@ -891,16 +1025,19 @@
 
             document.getElementById('manageListTab').classList.toggle('hidden', t !== 'list');
             document.getElementById('manageAddTab').classList.toggle('hidden', t !== 'add');
-            document.getElementById('tabListBtn').className = t === 'list' ? 'px-4 py-2 rounded-xl text-xs font-black uppercase bg-blue-800 text-white' : 'px-4 py-2 rounded-xl text-xs font-black text-slate-500 bg-white border border-slate-200';
-            document.getElementById('tabAddBtn').className = t === 'add' ? 'px-4 py-2 rounded-xl text-xs font-black bg-blue-800 text-white' : 'px-4 py-2 rounded-xl text-xs font-black text-slate-500 bg-white border border-slate-200';
-            
+            document.getElementById('manageSyncTab').classList.toggle('hidden', t !== 'sync');
+
+            document.getElementById('tabListBtn').className = t === 'list' ? 'px-3 py-2 rounded-xl text-xs font-black uppercase bg-blue-800 text-white' : 'px-3 py-2 rounded-xl text-xs font-black text-slate-500 bg-white border border-slate-200';
+            document.getElementById('tabAddBtn').className = t === 'add' ? 'px-3 py-2 rounded-xl text-xs font-black bg-blue-800 text-white' : 'px-3 py-2 rounded-xl text-xs font-black text-slate-500 bg-white border border-slate-200';
+            document.getElementById('tabSyncBtn').className = t === 'sync' ? 'px-3 py-2 rounded-xl text-xs font-black bg-blue-800 text-white flex items-center gap-1' : 'px-3 py-2 rounded-xl text-xs font-black text-blue-700 bg-blue-50 border border-blue-200 flex items-center gap-1';
+
             if (t === 'list') {
                 editingIndex = -1;
                 renderInventoryList();
             }
         }
 
-        // INTEGRACIÓN DIRECTA CON WHATSAPP
+        // INTEGRACIÓN DIRECTA CON WHATSAPP CON RIF J-29743296-5 Y FORMAS DE PAGO OFICIALES
         function sendWhatsAppQuote() {
             if (!cart.length) {
                 alert("Por favor selecciona al menos un repuesto para cotizar.");
@@ -910,8 +1047,8 @@
             const name = document.getElementById('clientNameInput').value.trim() || 'Cliente';
             const dateStr = new Date().toLocaleDateString('es-VE');
             
-            let msg = `🛠️ *COTIZACIÓN DE PIEZAS*\n`;
-            
+            let msg = `🛠️ *COTIZACIÓN DE REPUESTOS - Inversiones A&O 0575, C.A.*\n`;
+            msg += `📋 *RIF:* J-29743296-5\n`;
             msg += `📅 *Fecha:* ${dateStr}\n`;
             msg += `👤 *Cliente:* ${name}\n`;
             msg += `───────────────────\n`;
@@ -925,8 +1062,13 @@
 
             msg += `───────────────────\n`;
             msg += `💰 *TOTAL ESTIMADO:* *$${totalUsd.toFixed(2)} USD*\n`;
-            msg += `🇻🇪 *BCV OFICIAL (${TASA_BCV.toFixed(2)} Bs/$):* *${totalBs.toLocaleString('es-VE', {minimumFractionDigits: 2, maximumFractionDigits: 2})} Bs*\n\n`;
-            
+            msg += `🇻🇪 *EQUIVALENTE BCV (${TASA_BCV.toFixed(2)} Bs/$):* *${totalBs.toLocaleString('es-VE', {minimumFractionDigits: 2, maximumFractionDigits: 2})} Bs*\n\n`;
+            msg += `💳 *Formas de Pago Aceptadas:*\n`;
+            msg += `✅ Pagos en Bs (Tasa BCV)\n`;
+            msg += `✅ Divisa en Efectivo\n`;
+            msg += `✅ Binance\n`;
+            msg += `✅ Zinli\n\n`;
+            msg += `📍 *Ubicación:* Maracay - Aragua.\n`;
             msg += `¡Agradecemos confirmación de disponibilidad y método de pago!`;
 
             const encoded = encodeURIComponent(msg);
@@ -954,6 +1096,10 @@
         window.toggleStatus = toggleStatus;
         window.deleteProd = deleteProd;
         window.saveNewProduct = saveNewProduct;
+        window.restoreInitialProducts = restoreInitialProducts;
+        window.copySyncCode = copySyncCode;
+        window.importSyncCode = importSyncCode;
+        window.generateGithubCode = generateGithubCode;
         window.sendWhatsAppQuote = sendWhatsAppQuote;
     </script>
 </body>
