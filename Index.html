@@ -526,8 +526,8 @@
             const name = document.getElementById('clientNameInput').value.trim() || 'Cliente';
             const dateStr = new Date().toLocaleDateString('es-VE');
             
-            let msg = `🛠️ *COTIZACIÓN DE REPUESTOS - Inversiones A&O 0575, C.A.*\n`;
-            msg += `📋 *RIF:* J-29743296-5\n`;
+            let msg = `🛠️ *COTIZACIÓN DE PIEZAS AUTOMOTRICES*\n`;
+            
             msg += `📅 *Fecha:* ${dateStr}\n`;
             msg += `👤 *Cliente:* ${name}\n`;
             msg += `───────────────────\n`;
@@ -547,7 +547,7 @@
             msg += `✅ Divisa en Efectivo\n`;
             msg += `✅ Binance\n`;
             msg += `✅ Zinli\n\n`;
-            msg += `📍 *Ubicación:* Maracay - Aragua.\n`;
+            
             msg += `¡Agradecemos confirmación de disponibilidad y método de pago!`;
 
             const encoded = encodeURIComponent(msg);
